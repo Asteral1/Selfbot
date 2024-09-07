@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'encrypt',
-  description: 'Encrypt a message using a glitched-out cipher',
+  name: 'encryptmessage',
+  description: 'Encrypt a message using a heavily glitched-out cipher',
   execute(message, args) {
     if (args.length === 0) {
       return message.channel.send('❗ Please provide a message to encrypt.');
@@ -13,13 +13,17 @@ module.exports = {
   }
 };
 
-// Function to perform "glitched" encryption with random special characters
+// Function to perform "super glitched" encryption with lots of random special characters
 function glitchEncrypt(str) {
-  const glitchCharacters = ['҉', '∂', 'Ҝ', 'ε', 'ł', 'σ', '∑', 'ř', '∫', '¥', '∂', 'Σ', '∂', '∇', 'λ'];
+  const glitchCharacters = [
+    '҉', '∂', 'Ҝ', 'ε', 'ł', 'σ', '∑', 'ř', '∫', '¥', '∇', 'λ', '∂', 'Σ', '∆', 'ψ', 'ω', '†', '∏', 'Ж', 'Ѿ', 'Ф', 'Ш', 'Ђ', 'ξ', '∞', 'Ω', '∮',
+    'Ҕ', 'Ѽ', '†', '★', '➳', '♡', '⊗', '☯', '⚔', 'ᚖ', '⧫', '⊘', '◯', '♞', '☠', '⧲', '★', '𝔇', '𝔘', 'ℵ', '☾', '⟟', '≻', '≼', '⧏', '⦿', '➼', '☀', '⚡', '⟁', '⦵'
+  ]; // Expanded glitchy characters
+
   return str.split('').map(char => {
     if (char.match(/[a-z]/i)) {
-      // Randomly replace some characters with "glitched" symbols
-      const glitch = Math.random() < 0.3 ? glitchCharacters[Math.floor(Math.random() * glitchCharacters.length)] : char;
+      // Randomly replace characters with "glitched" symbols
+      const glitch = Math.random() < 0.6 ? glitchCharacters[Math.floor(Math.random() * glitchCharacters.length)] : char;
       return glitch;
     }
     return char; // Non-alphabet characters remain unchanged
