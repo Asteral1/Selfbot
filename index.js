@@ -41,11 +41,6 @@ for (const file of commandFiles) {
   const command = require(`./instructions/${file}`);
   client.commands.set(command.name, command);
   // Add aliases to the Map for easy lookup
-  if (command.aliases) {
-    for (const alias of command.aliases) {
-      client.commands.set(alias, command);
-    }
-  }
 }
 
 client.on('messageCreate', async (message) => {
