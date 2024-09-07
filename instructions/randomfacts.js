@@ -56,8 +56,8 @@ const facts = [
 module.exports = {
   name: 'randomfact',
   description: 'Sends a random fact with a bit of ASCII art',
-  aliases: ['rf']
-  execute(message) {
+  aliases: ['rf'],
+  async execute(message) {
     // Get a random fact from the array
     const fact = facts[Math.floor(Math.random() * facts.length)];
 
